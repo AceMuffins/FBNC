@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "eee",
+    "bbb",
+    "nnn"
+  ],
+  "key":
+  {
+    "e":
+    {
+      "item": "nuclearcraft:part",
+      "data": 3
+    },
+    "b":
+    {
+      "item": "fbnc:shield_basic"
+    },
+    "n":
+    {
+      "item": "avaritia:resource",
+      "data": 2
+    }
+  },
+  "result":
+  {
+    "item": "fbnc:shield_neutron",
+    "count": 1
+  }
+}

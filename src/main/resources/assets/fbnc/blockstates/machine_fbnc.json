@@ -1,0 +1,22 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "fbnc:blocks/block_fbnc_side",
+      "down": "fbnc:blocks/block_fbnc_bottom",
+      "up": "fbnc:blocks/block_fbnc_top",
+      "north": "fbnc:blocks/block_fbnc_side",
+      "east": "fbnc:blocks/block_fbnc_side",
+      "south": "fbnc:blocks/block_fbnc_side",
+      "west": "fbnc:blocks/block_fbnc_side"
+    }
+  },
+  "variants": {
+    "normal": {
+      "model": "cube_all"
+    },
+    "inventory": {
+      "model": "cube_all"
+    }
+  }
+}

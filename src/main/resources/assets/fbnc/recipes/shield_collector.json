@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "lal",
+    "asa",
+    "nnn"
+  ],
+  "key":
+  {
+    "l":
+    {
+      "item": "fbnc:lapis_infused"
+    },
+    "a":
+    {
+      "item": "nuclearcraft:part",
+      "data": 1
+    },
+    "s":
+    {
+      "item": "nuclearcraft:part",
+      "data": 5
+    },
+    "n":
+    {
+      "item": "fbnc:shield_neutron"
+    }
+  },
+  "result":
+  {
+    "item": "fbnc:shield_collector",
+    "count": 1
+  }
+}

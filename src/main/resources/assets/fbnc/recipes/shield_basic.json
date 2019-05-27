@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "sps",
+    "plp",
+    "sps"
+  ],
+  "key":
+  {
+    "s":
+    {
+      "item": "nuclearcraft:ingot",
+      "data": 13
+    },
+    "p":
+    {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    },
+    "l":
+    {
+      "item": "nuclearcraft:ingot",
+      "data": 2
+    }
+  },
+  "result":
+  {
+    "item": "fbnc:shield_basic",
+    "count": 1
+  }
+}

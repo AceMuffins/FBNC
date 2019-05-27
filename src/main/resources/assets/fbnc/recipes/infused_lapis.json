@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ggg",
+    "glg",
+    "ggg"
+  ],
+  "key":
+  {
+    "g":
+    {
+      "item": "nuclearcraft:dust",
+      "data": 8
+    },
+    "l":
+    {
+      "item": "minecraft:dye",
+      "data": 4
+    }
+  },
+  "result":
+  {
+    "item": "fbnc:lapis_infused",
+    "count": 1
+  }
+}

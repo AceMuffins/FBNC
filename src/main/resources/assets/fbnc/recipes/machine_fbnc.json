@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "dnm",
+    "nfn",
+    "mnd"
+  ],
+  "key":
+  {
+    "d":
+    {
+      "item": "nuclearcraft:decay_generator"
+    },
+    "n":
+    {
+      "item": "fbnc:shield_collector"
+    },
+    "m":
+    {
+      "item": "nuclearcraft:part",
+      "data": 8
+    },
+    "f":
+    {
+      "item": "nuclearcraft:fission_controller_new_fixed"
+    }
+  },
+  "result":
+  {
+    "item": "fbnc:machine_fbnc",
+    "count": 1
+  }
+}
