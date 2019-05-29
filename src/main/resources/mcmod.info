@@ -3,7 +3,7 @@
   "modid": "fbnc",
   "name": "Fission Based Neutron Collector",
   "description": "A bridge between NuclearCraft and Avaritia that noone asked for. Why? I dont know.",
-  "version": "0.8.1",
+  "version": "1.0.0",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",

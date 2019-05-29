@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import static com.ibm.icu.impl.duration.impl.DataRecord.EGender.N;
 
 
 public class FBNCTileEntity extends TileEntity implements ITickable {
@@ -34,6 +33,10 @@ public class FBNCTileEntity extends TileEntity implements ITickable {
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            if(facing == EnumFacing.UP)
+                return (T) input;
+            if(facing == EnumFacing.DOWN)
+                return (T) output;
             return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(wrapper);
         }
         return super.getCapability(capability, facing);
@@ -56,16 +59,13 @@ public class FBNCTileEntity extends TileEntity implements ITickable {
         if(!world.isRemote) {
             ItemStack itemStackInput = input.getStackInSlot(0);
             ItemStack itemStackOutput = output.getStackInSlot(0);
-            int n = itemStackInput.getCount();
-            if (FBNCRecipeHandler.getRecipe(itemStackInput)!=null) {
+            ItemStack recipeOut = FBNCRecipeHandler.getRecipeOutput(itemStackInput);
+            if(recipeOut != null && output.insertItem(0, recipeOut, true).isEmpty()){
+                recipeOut = recipeOut.copy();
                 cook++;
-                if (cook > 50) {
+                if (cook > 1200) {
                     itemStackInput.shrink(1);
-                    if(!itemStackOutput.isEmpty()){
-                        itemStackOutput.grow(FBNCRecipeHandler.getRecipe(itemStackInput).getOutput().getCount());
-                    } else {
-                        IItemHandler#insertItem(output, new ItemStack(A, N), simulate);
-                    }
+                    this.output.insertItem(0, recipeOut, false);
                     cook = 0;
                 }
             } else {

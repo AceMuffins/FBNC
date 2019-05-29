@@ -35,7 +35,7 @@ public class fbncMod {
     public static CommonProxy proxy;
     public static final String modId = "fbnc";
     public static final String name = "Fission Based Neutron Collector";
-    public static final String version = "0.8.1";
+    public static final String version = "1.0.0";
 
     @Mod.Instance(modId)
     public static fbncMod instance;
@@ -68,9 +68,15 @@ public class fbncMod {
     public void init(FMLInitializationEvent event) {
         final Item californium = ForgeRegistries.ITEMS.getValue(new ResourceLocation("nuclearcraft:californium"));
         final Item neutronPile = ForgeRegistries.ITEMS.getValue(new ResourceLocation("avaritia:resource"));
-        ItemStack cf = new ItemStack(californium, 1, 4);
         ItemStack neutrons = new ItemStack(neutronPile, 3, 2);
-        FBNCRecipeHandler.addFBNCRecipe(cf, neutrons);
+        ItemStack cf0 = new ItemStack(californium, 1, 0);
+        ItemStack cf4 = new ItemStack(californium, 1, 4);
+        ItemStack cf8 = new ItemStack(californium, 1, 8);
+        ItemStack cf12 = new ItemStack(californium, 1, 12);
+        FBNCRecipeHandler.addFBNCRecipe(cf0, neutrons);
+        FBNCRecipeHandler.addFBNCRecipe(cf4, neutrons);
+        FBNCRecipeHandler.addFBNCRecipe(cf8, neutrons);
+        FBNCRecipeHandler.addFBNCRecipe(cf12, neutrons);
     }
 
     @Mod.EventHandler

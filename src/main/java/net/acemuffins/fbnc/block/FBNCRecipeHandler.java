@@ -31,4 +31,14 @@ public class FBNCRecipeHandler
 
         return null;
     }
+    public static ItemStack getRecipeOutput(ItemStack input)
+    {
+
+        FBNCRecipes recipe = getRecipe(input);
+        if(recipe != null)
+        {
+            return recipe.getOutput();
+        }
+        return null;
+    }
 }

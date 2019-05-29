@@ -36,7 +36,7 @@ public class FBNCGui extends GuiContainer {
     private int getFissionProgressScaled(int pixels)
     {
         int i = FBNCTileEntity.cook;
-        int j = 50;
+        int j = 1200;
         return j != 0 && i != 0 ? i * pixels / j : 0;
     }
 }
