@@ -1,6 +1,8 @@
 package net.acemuffins.fbnc;
 
+import it.unimi.dsi.fastutil.bytes.AbstractByte2ObjectSortedMap;
 import net.acemuffins.fbnc.block.FBNCGui;
+import net.acemuffins.fbnc.block.FBNCRecipeHandler;
 import net.acemuffins.fbnc.block.GuiHandler;
 import net.acemuffins.fbnc.block.ModBlocks;
 import net.acemuffins.fbnc.item.ModItems;
@@ -8,6 +10,9 @@ import net.acemuffins.fbnc.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,6 +22,11 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import org.apache.commons.lang3.tuple.Pair;
+import scala.Array;
+
+import java.util.*;
 
 @Mod(modid = fbncMod.modId, name = fbncMod.name, version = fbncMod.version, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:nuclearcraft;required-after:avaritia;")
 
@@ -56,7 +66,11 @@ public class fbncMod {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        final Item californium = ForgeRegistries.ITEMS.getValue(new ResourceLocation("nuclearcraft:californium"));
+        final Item neutronPile = ForgeRegistries.ITEMS.getValue(new ResourceLocation("avaritia:resource"));
+        ItemStack cf = new ItemStack(californium, 1, 4);
+        ItemStack neutrons = new ItemStack(neutronPile, 3, 2);
+        FBNCRecipeHandler.addFBNCRecipe(cf, neutrons);
     }
 
     @Mod.EventHandler

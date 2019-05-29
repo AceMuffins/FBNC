@@ -6,6 +6,8 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -19,7 +21,7 @@ public class FBNCContainer extends Container {
     int OUTPUT = 1;
     int INPUT = 0;
 
-    private FBNCTileEntity te;
+    private final FBNCTileEntity te;
     public FBNCContainer(IInventory playerInventory, FBNCTileEntity te) {
         this.te = te;
         IItemHandler itemHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
