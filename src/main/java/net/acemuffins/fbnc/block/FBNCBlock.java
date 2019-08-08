@@ -10,17 +10,30 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.time.LocalDateTime;
+import java.time.Month;
 
 
 public class FBNCBlock extends Block {
     public FBNCBlock(Material materialIn) {
         super(materialIn);
-    }
+}
+
+    LocalDateTime now = LocalDateTime.now();
+    Month month = now.getMonth();
+    int day = now.getDayOfMonth();
 
     public void registerItemModel(Item itemBlock) {
-        fbncMod.proxy.registerItemRenderer(itemBlock, 0, "machine_fbnc");
+     //   if(month == Month.APRIL && day == 1){
+    //        fbncMod.proxy.registerItemRenderer(itemBlock, 0, "god");
+    //    } else {
+            fbncMod.proxy.registerItemRenderer(itemBlock, 0, "machine_fbnc");
+    //    }
     }
     @Override
     public boolean hasTileEntity(IBlockState state) {
@@ -35,6 +48,7 @@ public class FBNCBlock extends Block {
         if (world.isRemote) {
             return true;
         }
+
         TileEntity te = world.getTileEntity(pos);
         if (!(te instanceof FBNCTileEntity)) {
             return false;

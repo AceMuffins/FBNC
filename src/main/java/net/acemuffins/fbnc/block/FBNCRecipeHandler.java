@@ -1,5 +1,6 @@
 package net.acemuffins.fbnc.block;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.util.HashSet;

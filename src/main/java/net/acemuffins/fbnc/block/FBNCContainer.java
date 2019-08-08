@@ -18,23 +18,23 @@ public class FBNCContainer extends Container {
     public boolean canInteractWith(EntityPlayer playerIn) {
         return true;
     }
-    int OUTPUT = 1;
-    int INPUT = 0;
-
+    int inputFuel = 0;
+    int outputNeutron = 1;
+    int addheight = 6;
     private final FBNCTileEntity te;
     public FBNCContainer(IInventory playerInventory, FBNCTileEntity te) {
         this.te = te;
         IItemHandler itemHandler = this.te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
         //y=17 is really good
-        this.addSlotToContainer(new SlotItemHandler(itemHandler, INPUT, 56, 35)); //input
-        this.addSlotToContainer(new SlotItemHandler(itemHandler, OUTPUT, 116, 35)); //optput
+        this.addSlotToContainer(new SlotItemHandler(itemHandler, inputFuel, 97, 24));
+        this.addSlotToContainer(new SlotItemHandler(itemHandler, outputNeutron, 21, 62));
         for(int i=0;i<3;++i){
             for(int j=0;j<9;++j){
-                this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlotToContainer(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 37+84+addheight + i * 18));
             }
         }
         for(int k=0;k<9;++k) {
-            this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 142));
+            this.addSlotToContainer(new Slot(playerInventory, k, 8 + k * 18, 142+37+addheight));
         }
 
     }

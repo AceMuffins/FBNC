@@ -35,7 +35,7 @@ public class fbncMod {
     public static CommonProxy proxy;
     public static final String modId = "fbnc";
     public static final String name = "Fission Based Neutron Collector";
-    public static final String version = "1.0.0";
+    public static final String version = "2.1.0";
 
     @Mod.Instance(modId)
     public static fbncMod instance;
@@ -67,16 +67,32 @@ public class fbncMod {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         final Item californium = ForgeRegistries.ITEMS.getValue(new ResourceLocation("nuclearcraft:californium"));
+        final Item californiumFuel = ForgeRegistries.ITEMS.getValue(new ResourceLocation("nuclearcraft:fuel_californium"));
+        final Item californiumFuelDep = ForgeRegistries.ITEMS.getValue(new ResourceLocation("nuclearcraft:depleted_fuel_californium"));
+        final Item air = ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:air"));
         final Item neutronPile = ForgeRegistries.ITEMS.getValue(new ResourceLocation("avaritia:resource"));
         ItemStack neutrons = new ItemStack(neutronPile, 3, 2);
+        ItemStack neutronsNug = new ItemStack(neutronPile, 3, 3);
         ItemStack cf0 = new ItemStack(californium, 1, 0);
-        ItemStack cf4 = new ItemStack(californium, 1, 4);
         ItemStack cf8 = new ItemStack(californium, 1, 8);
-        ItemStack cf12 = new ItemStack(californium, 1, 12);
+
+        ItemStack airItem = new ItemStack(air, 1, 0);
+
+        ItemStack cff0 = new ItemStack(californiumFuel, 1, 0);
+        ItemStack cff4 = new ItemStack(californiumFuel, 1, 2);
+        ItemStack cff8 = new ItemStack(californiumFuel, 1, 4);
+        ItemStack cff12 = new ItemStack(californiumFuel, 1, 6);
+
+        ItemStack cffd0 = new ItemStack(californiumFuelDep, 1, 0);
+        ItemStack cffd4 = new ItemStack(californiumFuelDep, 1, 2);
+        ItemStack cffd8 = new ItemStack(californiumFuelDep, 1, 4);
+        ItemStack cffd12 = new ItemStack(californiumFuelDep, 1, 6);
         FBNCRecipeHandler.addFBNCRecipe(cf0, neutrons);
-        FBNCRecipeHandler.addFBNCRecipe(cf4, neutrons);
         FBNCRecipeHandler.addFBNCRecipe(cf8, neutrons);
-        FBNCRecipeHandler.addFBNCRecipe(cf12, neutrons);
+        FBNCRecipeHandler.addFBNCRecipe(cff0, neutronsNug);
+        FBNCRecipeHandler.addFBNCRecipe(cff4, neutronsNug);
+        FBNCRecipeHandler.addFBNCRecipe(cff8, neutronsNug);
+        FBNCRecipeHandler.addFBNCRecipe(cff12, neutronsNug);
     }
 
     @Mod.EventHandler

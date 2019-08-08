@@ -28,7 +28,7 @@ public class GuiHandler implements IGuiHandler {
         FBNCTileEntity te = (FBNCTileEntity) world.getTileEntity(pos);
         switch (ID) {
             case 1:
-                return new FBNCGui(new FBNCContainer(player.inventory, te));
+                return new FBNCGui(new FBNCContainer(player.inventory, te), player, pos);
             default:
                 return null;
         }
